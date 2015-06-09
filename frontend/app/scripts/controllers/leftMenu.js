@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('frontendApp', []).directive('menu', function() {
+angular.module('frontendApp').directive('menu', function() {
   return {
     restrict: 'E',
     replace: true,

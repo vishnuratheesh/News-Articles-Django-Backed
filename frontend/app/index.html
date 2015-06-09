@@ -26,23 +26,26 @@
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#/">Articles App</a>
+            <h2><a class="navbar-brand" href="#/"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Articles App</a></h2>
           </div>
         </div>
       </div>
     </div>
 
-    <div ng-controller="MenuCtrl">
+    <!-- <div ng-controller="MenuCtrl">
       <menu menus='menus' location='pull-left'></menu>
     </div>
 
-    <div class="container">
-    <div ng-view=""></div>
+    <div ng-controller="PreviewSectionCtrl">
+      <preview article='article' location='top-center'></preview>
+    </div> -->
+    <div ng-controller="MainCtrl">
+      <ng-view></ng-view>
     </div>
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Vishnu</p>
+        <p><span class="glyphicon glyphicon-heart"></span> from Articles App</p>
       </div>
     </div>
 
@@ -69,6 +72,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -77,6 +81,7 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/leftMenu.js"></script>
+        <script src="scripts/controllers/previewSection.js"></script>
         <!-- endbuild -->
 </body>
 </html>
