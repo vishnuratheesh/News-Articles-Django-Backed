@@ -119,6 +119,9 @@ module.exports = function(grunt) {
       options: {
         jshintrc: '.jshintrc',
         camelcase: false,
+        options: {
+          '-W079': true,
+        },
         reporter: require('jshint-stylish')
       },
       all: {

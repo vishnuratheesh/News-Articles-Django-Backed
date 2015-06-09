@@ -30,10 +30,10 @@ angular.module('frontendApp').directive('whatnext', function() {
         arrows: false
       });
       $('#slickNext').click(function() {
-        $("#articleslider").slick('slickNext');
+        $('#articleslider').slick('slickNext');
       });
       $('#slickPrev').click(function() {
-        $("#articleslider").slick('slickPrev');
+        $('#articleslider').slick('slickPrev');
       });
 
 
