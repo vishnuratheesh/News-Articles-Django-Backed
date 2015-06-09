@@ -1,0 +1,14 @@
+<div style="position: fixed; bottom: 0; margin-left: 20rem;background-color: white;height: 180px;width:80rem;border: 2px solid #e6e6e6;">
+<div style="border-bottom: 2px solid #e6e6e6; height:4.5rem;">
+  <div style="padding:8px;float:left;"><h4>What Next</h4></div>
+  <div style="padding:8px;float:right;"><h4><a style="cursor: pointer;"><</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a style="cursor: pointer;">></a></h4></div>
+</div>
+
+<ul class="nav {{loc}}" style="width: 80rem; height:12rem;display: block; white-space: nowrap; overflow: auto;margin-left: 5rem;">
+  <li ng-repeat="w in whatnext" style="width:15rem; display: inline-block; float:left;left 15rem;top:1.25rem">
+    <div>
+      <p><img src="{{w.hero_image_url}}" alt="hero thumbnail" height="60px;" width="100px;"></p>
+      <p><a href="#/about" style="color:dodgerblue;font-size: 4px;">{{(w.title).substring(0,20)}}</a></p>
+    </div>
+  </li>
+</div>

@@ -14,7 +14,8 @@ angular.module('frontendApp', [
   'ngResource',
   'ngRoute',
   'ngSanitize',
-  'ngTouch'
+  'ngTouch',
+  'slick'
 ]).config(function($routeProvider) {
   $routeProvider
     .when('/', {
