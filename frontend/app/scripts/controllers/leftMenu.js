@@ -12,14 +12,7 @@ angular.module('frontendApp', []).directive('menu', function() {
       if ($scope) {}
       if ($element) {}
     },
-    template: '<div class="nav pull-left" style="border:2px solid #e6e6e6;">' +
-      '<div style="border:2px solid #e6e6e6;height: 65px;"> </div>' +
-      '<div style="border:2px solid #e6e6e6;height: 25px;">&nbsp;&nbsp;&nbsp;<i class="fa fa-bars"></i>&nbsp;|&nbsp;<i class="fa fa-search"></i></div>' +
-      '<ul class="nav {{loc}}">' +
-      '<li ng-repeat="m in menus.left">' +
-      '<a href="{{m.link}}">{{m.text}}</a>' +
-      '</li>' +
-      '</ul></div>'
+    templateUrl: 'views/menu.html'
   };
 }).controller('MenuCtrl', function($scope) {
   $scope.menus = {
