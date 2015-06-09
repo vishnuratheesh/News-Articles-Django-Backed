@@ -22,9 +22,9 @@ angular.module('frontendApp', [
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
-    .when('/about', {
-      templateUrl: 'views/about.html',
-      controller: 'AboutCtrl'
+    .when('/article/:articleId', {
+      templateUrl: 'views/articleDetails.html',
+      controller: 'ArticleCtrl'
     })
     .otherwise({
       redirectTo: '/'
@@ -33,6 +33,16 @@ angular.module('frontendApp', [
   return {
     getJson: function() {
       var url = apiBaseURL + '/articles/';
+      var promise = $http.get(url);
+      return promise.then(function(result) {
+        return result.data;
+      });
+    }
+  };
+}).factory('getArticle', function($http) {
+  return {
+    getJson: function(articleId) {
+      var url = apiBaseURL + '/articles/' + articleId;
       var promise = $http.get(url);
       return promise.then(function(result) {
         return result.data;

@@ -19,23 +19,23 @@ angular.module('frontendApp').directive('menu', function() {
     'current': 'index',
     'left': [{
       'active': true,
-      'link': '\/',
+      'link': '/#/',
       'text': 'Nav 1'
     }, {
       'active': false,
-      'link': '\/',
+      'link': '/#/',
       'text': 'Nav 2'
     }, {
       'active': false,
-      'link': '\/',
+      'link': '/#/',
       'text': 'Nav 3'
     }, {
       'active': false,
-      'link': '\/',
+      'link': '/#/',
       'text': 'Nav 4'
     }, {
       'active': false,
-      'link': '\/about',
+      'link': '/#/',
       'text': 'Nav 5'
     }],
     'rightLink': '\/session\/index',
