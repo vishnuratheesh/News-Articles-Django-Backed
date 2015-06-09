@@ -1,6 +1,6 @@
 <div style="margin-left: 20rem;">
-<h3><a href="#/article/{{article.id}}" >{{article.title}}</a></h3>
+<h2><a href="#/article/{{article.id}}" >{{article.title}}</a></h2>
 <p>{{article.author}} | {{article.humanDate}}</p>
-<p><img src="{{article.hero_image_url}}" alt="Smiley face" height="200px;" width="300px;"></p><br>
-<p style="width:80rem;">{{(article.body_text).substring(0,400)}}... &nbsp;&nbsp; <br><br><a href="#/article/{{article.id}}" >Read More...</a></p>
+<p><img ng-src="{{article.hero_image_url}}" alt="Smiley face" height="200px;" width="300px;"></p><br>
+<p style="width:80rem;font-size: 2rem;">{{(article.body_text).substring(0,400)}}... &nbsp;&nbsp; <br><br><a href="#/article/{{article.id}}"style="float:right;">Read More...</a></p>
 </div>

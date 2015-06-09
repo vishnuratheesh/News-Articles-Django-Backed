@@ -1,9 +1,9 @@
 <div style="margin-left: 20rem;margin-top: 15px;";>
 
 <ul class="nav {{loc}}" style="margin-top: 30px;">
-  <li ng-repeat="a in articles" style="width:80rem;margin-top: 30px;">
-    <p><h4><a href="#/article/{{a.id}}" style="color:black">{{a.title}}</a></h4></p>
-    <p>{{(a.body_text).substring(0,250)}}...<br><br><a href="#/article/{{a.id}}" >Read More...</a></p>
+  <li ng-repeat="a in articles" style="width:80rem;margin-top: 55px;">
+    <p><h3><a href="#/article/{{a.id}}" style="color:black">{{a.title}}</a></h3></p>
+    <p>{{(a.body_text).substring(0,250)}}...<br><a href="#/article/{{a.id}}" style="float:right;">Read More...</a></p>
   </li>
 </ul>
 

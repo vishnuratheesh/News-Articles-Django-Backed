@@ -7,7 +7,7 @@
 <ul class="nav {{loc}}" style="width: 80rem; height:12rem;display: block; white-space: nowrap; overflow: auto;margin-left: 5rem;">
   <li ng-repeat="w in whatnext" style="width:15rem; display: inline-block; float:left;left 15rem;top:1.25rem">
     <div>
-      <p><img src="{{w.hero_image_url}}" alt="hero thumbnail" height="60px;" width="100px;"></p>
+      <p><img ng-src="{{w.hero_image_url}}" alt="hero thumbnail" height="60px;" width="100px;"></p>
       <p><a href="#/about" style="color:dodgerblue;font-size: 4px;"><b>{{(w.title).substring(0,20)}}...</b></a></p>
     </div>
   </li>
