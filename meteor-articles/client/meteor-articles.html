@@ -1,14 +1,93 @@
+
 <head>
-  <title>meteor-articles</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Awesome</title>
+  <link rel="stylesheet" href="">
 </head>
-
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+{{> topheader}}
+{{> menu}}
+{{> whatnext}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="topheader">
+  <div class="container">
+    <div class="navbar-header">
+      <h2><a class="navbar-brand" href="/"><i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Articles App</a></h2>
+    </div>
+  </div>
+</template>
+
+
+<!--Left Menu Related-->
+<template name="menu">
+<div class="nav pull-left" style="border:2px solid #e6e6e6;">
+  <div style="border:2px solid #e6e6e6;height: 65px;"> </div>
+  <div style="border:2px solid #e6e6e6;height: 25px;">&nbsp;&nbsp;&nbsp;<i class="fa fa-bars"></i>&nbsp;|&nbsp;<i class="fa fa-search"></i></div>
+  <ul class="nav {{loc}}">
+      {{#each menus.left}}
+      {{> menuitem}}
+      {{/each}}
+  </ul>
+</div>
+</template>
+
+<template name="menuitem">  
+  <li>
+    <a href="{{link}}">{{text}}</a>
+  </li>      
+</template>
+
+<!-- What Next Template -->
+<template name="whatnext"> 
+<div style="position: fixed; bottom: 0; margin-left: 20rem;background-color: white;height: 20 0px;width:80rem;border: 2px solid #e6e6e6;">
+<div style="border-bottom: 2px solid #e6e6e6; height:4.5rem;">
+  <div style="padding:8px;float:left;"><h4>What Next</h4></div>
+  <div style="padding:8px;float:right;user-select: none;-webkit-user-select: none;">
+    <h4><a style="cursor: pointer;" class="nextArticles">&lt;</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a style="cursor: pointer;" class="prevArticles">&gt;</a></h4>
+  </div>
+</div>
+
+  <div id="carousel" style="top:2rem;">
+  {{#each articles}}
+  {{> previewarticles}}
+  {{/each}}
+  </div>
+
+</div>
+</template>
+<template name="previewarticles">
+  <div>
+    <p><img src="{{hero_image_url}}" alt="hero thumbnail" height="60px;" width="100px;"></p>
+    <a  href="/article/{{id}}" style="color:dodgerblue;font-size: 4px;"><b>{{shortTitle title}}...</b></a>
+  </div>
+</template>
+
+<template name="home">
+  <h2>Home</h2>
+  <p>You are on the home screen.</p>
+
+</template>
+
+<template name = 'about'>
+  <h2>About this site</h2>
+</template>
+
+<template name = 'articles'>
+  <h2>Articles</h2>
+    <ul>
+       {{#each this}} 
+        <li>
+          <a href="{{ pathFor 'article' }}"> {{title}} </a>
+        </li>
+      {{/each}}
+    </ul>
+</template>
+
+<template name = 'fullArticle'>
+  <h2>{{title}}</h2>
+  <p>{{body_text}}</p>
 </template>
