@@ -2,6 +2,8 @@ console.log("only on client")
 
 Articles = new Mongo.Collection("articles");
 
+Meteor.subscribe("articles");
+
 Router.map(function() {
     this.route('about'); // By default, path = '/about', template = 'about'
     this.route('home', {

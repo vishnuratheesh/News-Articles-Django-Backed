@@ -1,6 +1,9 @@
 Meteor.startup(function() {
+
   var apiBaseURL = "http://127.0.0.1:5000";
+
   Articles = new Mongo.Collection("articles");
+  
   console.log("only on server")
 
   Meteor.http.get(apiBaseURL + "/articles/?format=json", function(error, result) {
@@ -24,6 +27,11 @@ Meteor.startup(function() {
 
       }
     }
+  });
+
+
+  Meteor.publish("articles", function () {
+    return Articles.find({});
   });
 
 });
