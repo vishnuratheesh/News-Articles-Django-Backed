@@ -107,7 +107,8 @@ STATIC_URL = '/static/'
 ## REST FRAMEWORK
 REST_FRAMEWORK = {
   'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',),
-  'PAGE_SIZE': 10
+  'PAGE_SIZE': 10,
+  'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
 }
 
 CORS_ORIGIN_ALLOW_ALL = True
