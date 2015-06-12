@@ -1,0 +1,26 @@
+<template name="home">
+  <div style="margin-left: 20rem;">
+    <h2><a href="/article/{{article.id}}" >{{article.title}}</a></h2>
+    <p>{{article.author}} | {{humanDate article.pub_date}}</p>
+    <p><img src="{{article.hero_image_url}}" alt="Hero Placeholder" height="200px;" width="300px;"></p><br>
+    <p style="width:80rem;font-size: 2rem;">{{previewBody article.body_text}}... &nbsp;&nbsp; <br><br>
+    <a href="/article/{{article.id}}" style="float:right;">Read More...</a></p>
+  </div>
+
+<div style="margin-left:20rem;margin-top:15px;">
+
+  <ul class="nav" style="margin-top: 30px;">
+    {{#each articlelistings}}
+    {{> articlelisting}}
+    {{/each}}
+</ul>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+</div> 
+</template>
+
+<template name="articlelisting">
+  <li style="width:80rem;margin-top: 55px;">
+    <p><h3><a href="/article/{{id}}" style="color:black">{{title}}</a></h3></p>
+    <p>{{shortBody body_text}}...<br><a href="/article/{{id}}" style="float:right;">Read More...</a></p>
+  </li>
+</template>

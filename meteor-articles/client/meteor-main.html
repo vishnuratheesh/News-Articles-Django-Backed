@@ -6,9 +6,9 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
+{{> whatnext}}
 {{> topheader}}
 {{> menu}}
-{{> whatnext}}
 </body>
 
 <template name="topheader">
@@ -41,7 +41,7 @@
 
 <!-- What Next Template -->
 <template name="whatnext"> 
-<div style="position: fixed; bottom: 0; margin-left: 20rem;background-color: white;height: 20 0px;width:80rem;border: 2px solid #e6e6e6;">
+<div style="position: fixed; bottom: 0; margin-left: 20rem;background-color: white;height: 20 0px;width:80rem;border: 2px solid #e6e6e6;z-index: 1;">
 <div style="border-bottom: 2px solid #e6e6e6; height:4.5rem;">
   <div style="padding:8px;float:left;"><h4>What Next</h4></div>
   <div style="padding:8px;float:right;user-select: none;-webkit-user-select: none;">
@@ -64,12 +64,6 @@
     <p><img src="{{hero_image_url}}" alt="hero thumbnail" height="60px;" width="100px;"></p>
     <a  href="/article/{{id}}" style="color:dodgerblue;font-size: 4px;"><b>{{shortTitle title}}...</b></a>
   </div>
-</template>
-
-<template name="home">
-  <h2>Home</h2>
-  <p>You are on the home screen.</p>
-
 </template>
 
 <template name = 'about'>
