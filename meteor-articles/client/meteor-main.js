@@ -1,4 +1,4 @@
-console.log("only on client")
+var apiBaseURL = "http://127.0.0.1:5000";
 
 Articles = new Mongo.Collection("articles");
 
@@ -14,15 +14,35 @@ Router.map(function() {
                 return Articles.find()
             } //set template data context
     });
+    // this.route('article', {
+    //     path: '/article/:id',
+    //     data: function() {
+    //         return Articles.findOne({
+    //             id: parseInt(this.params.id)
+    //         })
+    //     },
+    //     template: 'fullArticle'
+    // });
     this.route('article', {
-        path: '/article/:id',
-        data: function() {
-            return Articles.findOne({
-                id: parseInt(this.params.id)
-            })
-        },
-        template: 'fullArticle'
-    });
+    path: '/article/:id',
+    data: function() {
+
+      Meteor.http.get(apiBaseURL + "/articles/"+this.params.id+"/?format=json", function(error, result) {
+        if (error) {
+          console.log('http get FAILED!');
+        } else {
+          console.log('http get SUCCESS');
+          if (result.statusCode === 200) {
+            //this.response.writeHead(200, {'Content-Type': 'application/json'});
+            //this.response.end(JSON.stringify(result.content));
+            Session.set("jsondata", result.content);
+            return {'data': 2};
+          }
+        }
+      });
+    },
+    template: 'jsonArticle'
+  });
 });
 
 //
@@ -96,3 +116,15 @@ Template.menu.helpers({
         };
     }
 });
+
+// JSON - display from Django
+Template.jsonArticle.rendered = function () {
+    console.log('[main] rendered');
+  };
+
+  Template.jsonArticle.helpers({
+    jsondata: function () { 
+      console.log("[main] 'test' helper executed");
+      return Session.get("jsondata");
+    }
+  });
