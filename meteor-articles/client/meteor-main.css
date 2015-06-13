@@ -98,3 +98,10 @@ body {
 .slick-prev:before, .slick-next:before {
   color:    silver;
 }
+
+body > div:nth-child(4) > input[type="text"]{
+  font-size: 2rem;
+  width: 80rem;
+  font-weight: bold;
+}
+

@@ -3,6 +3,9 @@ Meteor.startup(function() {
   var apiBaseURL = "http://127.0.0.1:5000";
 
   Articles = new Mongo.Collection("articles");
+  Articles.initEasySearch(['title', 'id'], {
+    'use' : 'mongo-db'
+  });
   
   console.log("only on server")
 

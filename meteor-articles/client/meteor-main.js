@@ -1,11 +1,16 @@
 var apiBaseURL = "http://127.0.0.1:5000";
 
 Articles = new Mongo.Collection("articles");
+Articles.initEasySearch(['title', 'id'], {
+  'use' : 'mongo-db'
+});
 
 Meteor.subscribe("articles");
 
 Router.map(function() {
-    this.route('about'); // By default, path = '/about', template = 'about'
+    this.route('search',{
+      path: '/search',
+    }); // By default, path = '/about', template = 'about'
     this.route('home', {
         path: '/', //overrides the default '/home'
     });
@@ -92,8 +97,8 @@ Template.menu.helpers({
             'current': 'index',
             'left': [{
                 'active': true,
-                'link': '/',
-                'text': 'Nav 1'
+                'link': '/search',
+                'text': 'Search'
             }, {
                 'active': false,
                 'link': '/',
@@ -128,3 +133,33 @@ Template.jsonArticle.rendered = function () {
       return Session.get("jsondata");
     }
   });
+
+
+// Search highlight
+Template.registerHelper('highlight', function(text) {
+  var hashtagPattern = /\s*(#\w*)/gi,
+    link = "/search/",
+    m, match, matches = [], t, url ='';
+
+  // initial check for hashtag in text
+  if(text.indexOf("#") !== -1) {
+
+      // find all #keywords (that have hashtags)
+      while ( (match = hashtagPattern.exec(text)) ) {
+        matches.push(match[0]);
+      }
+
+      // replace any #keywords with <a href="/search/keywords">#keywords</a>
+      for(var j=0; j < matches.length; j++) {
+        m = matches[j].replace(/\s/g, "");
+        // console.log('match',m);
+        url = link+m;
+        url = url.replace('#',"").toLowerCase(); // remove hashtag for lookup
+        t = " <a class='hashtag' href='"+url+"'>"+m+"</a> "; // replace with
+        replace = new RegExp("\\s*("+m+")", 'gi');
+
+        text = text.replace(replace, t);
+      }
+    }
+  return text;
+});

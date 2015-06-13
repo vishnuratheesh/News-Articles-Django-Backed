@@ -72,8 +72,26 @@
   </div>
 </template>
 
-<template name = 'about'>
-  <h2>About this site</h2>
+<template name="search">
+<div style="margin-left: 20rem;width:80rem;font-size: 2rem;">
+    {{> esInput index="articles" placeholder="Search..." }}
+    <br><br>
+    <ul>
+        {{#esEach index="articles"}}
+            <li><a href="/article/{{id}}">{{highlight title}}</a></li><br>
+        {{/esEach}}
+    </ul>
+
+    {{> esLoadMoreButton index="articles"}}
+
+    {{#ifEsHasNoResults index="articles"}}
+        <div class="no-results">No articles found!</div>
+    {{/ifEsHasNoResults}}
+
+    {{#ifEsIsSearching index="articles"}}
+            <div><i class="fa fa-cog fa-spin"></i></div>
+    {{/ifEsIsSearching}}
+ </div>
 </template>
 
 <template name = 'articles'>
