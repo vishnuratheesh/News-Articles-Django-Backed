@@ -4,6 +4,11 @@
 	- Filled in Dummy Data via /admin.
 	- Used/Configured Django REST Framework to expose out APIs.
 	- Frontend 2 page website using AngularJS.
+	
+	Second Part
+	- Implemented front-end using meteor.
+	- Site search implemented.
+
 
 
 #####Back-end
@@ -25,8 +30,8 @@
 
 
 
-#####Front-end
-1. navigate to 'frontend' foleder
+#####Front-end - AngularJS
+1. navigate to 'frontend' folder
 
 2. npm install
 
@@ -37,3 +42,11 @@
 5. grunt
 
 6. Should auto-launch your browser at [http://localhost:5000/](http://localhost:5000/)
+
+
+#####Front-end - Meteor
+1. Navigate to 'meteor-articles' folder
+
+2. meteor
+
+3. This will start the server, navigate to: [http://localhost:3000/](http://localhost:3000/)
