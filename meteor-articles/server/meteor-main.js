@@ -44,6 +44,7 @@ Meteor.startup(function() {
         Meteor.http.get(apiBaseURL + "/articles/" + article_id + "/?format=json", function(error, result) {
           if (error) {
             console.log('http get FAILED!');
+            future["return"](error.response)
           } else {
             console.log('http get SUCCESS');
             if (result.statusCode === 200) {
