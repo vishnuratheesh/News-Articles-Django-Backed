@@ -52,7 +52,7 @@ Router.map(function() {
 Template.previewarticles.rendered = function() {
   $('#carousel').slick({
     dots: false,
-    arrows: false,
+    arrows: true,
     infinite: false,
     slidesToShow: 4,
     slidesToScroll: 4,
