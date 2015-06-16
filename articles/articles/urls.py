@@ -42,4 +42,5 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
     url('^articles/(?P<articleid>.+)/$', views.ArticleList),
+    url(r'^search/', include('haystack.urls')),
 ]
