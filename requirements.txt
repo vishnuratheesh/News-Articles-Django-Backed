@@ -1,4 +1,4 @@
-Django==1.7.8
+Django==2.2.24
 django-cors-headers==1.1.0
 django-dbarray==0.2
 django-ddp==0.8.1
